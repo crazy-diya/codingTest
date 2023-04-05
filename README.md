@@ -1,16 +1,6 @@
-# coding_test
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## in there i tried to add KeyHashes using my own lap top. but it didn't work 
+# and i added it using another laptop. so its not work properly. we can visit to the facebook and login. when 
+# after the login occur permission error. so it not work properly. please check my Code things. i added all the 
+# things properly.
+# also i add splash screen and modified little bit Map screen. 
+# and also in the login view i add the timer to redirect within 15 sec to the Item List View.  

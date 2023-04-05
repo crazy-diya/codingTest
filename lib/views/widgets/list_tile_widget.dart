@@ -6,14 +6,14 @@ import '../../utils/app_colors.dart';
 class ListTileWidget extends StatelessWidget {
   const ListTileWidget({
     super.key,
-    required this.hotelList,
+    required this.itemList,
     required this.index,
     required this.onTap,
   });
 
   final int index;
   final Function() onTap;
-  final List<ItemBean> hotelList;
+  final List<ItemDataBean> itemList;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ListTileWidget extends StatelessWidget {
           ListTile(
             leading: ClipOval(
               child: Image.network(
-                hotelList[index].image!.medium!,
+                itemList[index].image!.medium!,
                 height: 60.0,
                 width: 60.0,
                 fit: BoxFit.cover,
@@ -33,10 +33,10 @@ class ListTileWidget extends StatelessWidget {
                     width: 60.0,
                     alignment: Alignment.center,
                     child: const Text(
-                      'No Image',
+                      'Image Not Loading',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 15, color: AppColors.primaryColor),
+                          fontSize: 11, color: AppColors.primaryColor),
                     ),
                   );
                 },
@@ -45,7 +45,7 @@ class ListTileWidget extends StatelessWidget {
             title: Padding(
               padding: const EdgeInsets.only(bottom: 7.5),
               child: Text(
-                hotelList[index].title!,
+                itemList[index].title!,
                 style: const TextStyle(
                   fontSize: 15.0,
                   fontWeight: FontWeight.w500,
@@ -53,7 +53,7 @@ class ListTileWidget extends StatelessWidget {
               ),
             ),
             subtitle: Text(
-              hotelList[index].address!,
+              itemList[index].address!,
               style: const TextStyle(
                 fontSize: 13.0,
                 color: Colors.grey,

@@ -1,7 +1,7 @@
 import 'package:coding_test/utils/app_colors.dart';
 import 'package:coding_test/utils/app_constants.dart';
 import 'package:coding_test/utils/navigation_routes.dart';
-import 'package:coding_test/views/login_view.dart';
+import 'package:coding_test/views/login_view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

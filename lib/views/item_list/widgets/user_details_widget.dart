@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
-import '../../utils/app_colors.dart';
-import '../login_view.dart';
+import '../../../utils/app_colors.dart';
+import '../../login_view/login_view.dart';
 
 class UserDetailsWidget extends StatelessWidget {
   const UserDetailsWidget({

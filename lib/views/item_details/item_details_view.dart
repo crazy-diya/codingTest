@@ -1,26 +1,27 @@
-
+import 'package:coding_test/utils/navigation_routes.dart';
 import 'package:flutter/material.dart';
 
-import '../models/item_model.dart';
-import '../utils/app_colors.dart';
-import 'google_map_view.dart';
+import '../../models/item_model.dart';
+import '../../utils/app_colors.dart';
+import '../google_map/google_map_view.dart';
 
-class ItemDetailsView extends StatefulWidget {
-  const ItemDetailsView({required this.itemData});
+class ItemDetailView extends StatefulWidget {
+  const ItemDetailView({required this.itemData});
 
-  final ItemBean itemData;
+  final ItemDataBean itemData;
 
   @override
-  State<ItemDetailsView> createState() => _ItemDetailsViewState();
+  State<ItemDetailView> createState() => _ItemDetailViewState();
 }
 
-class _ItemDetailsViewState extends State<ItemDetailsView> {
+class _ItemDetailViewState extends State<ItemDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon:
+          const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
@@ -32,17 +33,12 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
           IconButton(
             icon: const Icon(Icons.location_on, color: Colors.black),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      GoogleMapView(itemData: widget.itemData),
-                ),
-              );
+              Navigator.pushNamed(
+                  context, Routes.kMapView, arguments: widget.itemData);
             },
           ),
         ],
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: AppColors.secondaryColor,
         centerTitle: true,
       ),
       body: Padding(
@@ -54,8 +50,10 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
               widget.itemData.image!.large!,
               fit: BoxFit.fitWidth,
               errorBuilder: (context, error, stackTrace) {
-                return Image.asset('assets/images/Image_not_available.png',
-                    fit: BoxFit.fitWidth);
+                return Image.asset(
+                  'assets/images/no_image.png',
+                  fit: BoxFit.fitWidth,
+                );
               },
             ),
           ),
@@ -68,14 +66,14 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                     widget.itemData.title!,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 22.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 25.0),
                   Text(
                     widget.itemData.description!,
-                    textAlign: TextAlign.left,
+                    textAlign: TextAlign.justify,
                     style: const TextStyle(
                       fontSize: 13.0,
                       fontWeight: FontWeight.w300,

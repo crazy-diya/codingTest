@@ -9,11 +9,11 @@ class ItemList {
     this.data,
   });
 
-  List<ItemBean>? data;
+  List<ItemDataBean>? data;
 
   factory ItemList.fromJson(Map<String, dynamic> json) => ItemList(
         data:
-            List<ItemBean>.from(json["data"].map((x) => ItemBean.fromJson(x))),
+            List<ItemDataBean>.from(json["data"].map((x) => ItemDataBean.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -21,8 +21,8 @@ class ItemList {
       };
 }
 
-class ItemBean {
-  ItemBean({
+class ItemDataBean {
+  ItemDataBean({
     this.id,
     this.title,
     this.description,
@@ -44,7 +44,7 @@ class ItemBean {
   String? longitude;
   Images? image;
 
-  factory ItemBean.fromJson(Map<String, dynamic> json) => ItemBean(
+  factory ItemDataBean.fromJson(Map<String, dynamic> json) => ItemDataBean(
         id: json["id"],
         title: json["title"],
         description: json["description"],

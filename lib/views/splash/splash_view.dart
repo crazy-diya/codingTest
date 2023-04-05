@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:coding_test/views/item_list/item_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_images.dart';
 import '../../utils/app_strings.dart';
+import '../../utils/navigation_routes.dart';
 import '../widgets/common_widgets.dart';
+
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
 
@@ -24,10 +27,16 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // _timer = Timer(const Duration(seconds: 2), () {
-    //   loading = false;
-    //   Navigator.pushNamed(context, Routes.kHomeView);
-    // });
+    _timer = Timer(const Duration(seconds: 4), () {
+      loading = false;
+      Navigator.pushNamed(context, Routes.kLoginView,);
+      // Navigator.pushNamed(
+      //   context,
+      //   Routes.kItemListView,
+      //   arguments: ItemListViewBean(
+      //       name: "Dimuthu Lakshan", email: "dimuthulakshan2012@gmail.com"),
+      // );
+    });
   }
 
   @override
@@ -44,10 +53,9 @@ class _SplashViewState extends State<SplashView> {
         children: [
           Container(
             width: double.infinity,
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(AppImages.imgSplashBG),
-                  fit: BoxFit.cover),
+                  image: AssetImage(AppImages.imgSplashBG), fit: BoxFit.cover),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,12 +110,12 @@ class _SplashViewState extends State<SplashView> {
           ),
           loading == true
               ? const Align(
-            alignment: Alignment.center,
-            child: CircularProgressIndicator(
-              backgroundColor: AppColors.primaryColor,
-              strokeWidth: 2,
-            ),
-          )
+                  alignment: Alignment.center,
+                  child: CircularProgressIndicator(
+                    backgroundColor: AppColors.primaryColor,
+                    strokeWidth: 2,
+                  ),
+                )
               : const SizedBox.shrink(),
         ],
       ),
